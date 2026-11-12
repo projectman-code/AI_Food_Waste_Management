@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Create account | FreshLoop{% endblock %}{% block content %}
+<div class="form-wrap"><div class="form-card"><span class="eyebrow">JOIN FRESHLOOP</span><h1>Create account</h1><form method="post">
+<label>Full name<input name="name" required></label><label>Email address<input type="email" name="email" required></label>
+<label>Password<input type="password" name="password" minlength="6" required></label>
+<label>Account type<select name="role"><option>Donor</option><option>NGO</option><option>Admin</option></select></label>
+<button class="btn primary full">Create account</button></form><p class="muted">Already registered? <a href="{{ url_for('login') }}">Sign in</a></p></div></div>
+{% endblock %}

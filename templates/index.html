@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero">
+ <div class="hero-copy"><span class="eyebrow">SMARTER FOOD • LESS WASTE</span>
+  <h1>Turn surplus food<br><em>into shared value.</em></h1>
+  <p>An AI-assisted platform to estimate food waste risk, list surplus food and connect donors with NGOs.</p>
+  <div class="actions"><a class="btn primary" href="{{ url_for('register') }}">Create account</a><a class="btn secondary" href="{{ url_for('login') }}">Sign in</a></div>
+ </div>
+ <div class="hero-art"><div class="leaf">🥬</div><div class="plate">🍎</div><div class="mini-card"><b>Food saved</b><strong>{{ '%.1f'|format(stats.saved_kg) }} kg</strong><small>claimed donations</small></div></div>
+</section>
+<section class="stats">
+ <div class="stat"><span>Claimed donations</span><b>{{ stats.donations }}</b></div>
+ <div class="stat"><span>Food saved</span><b>{{ '%.1f'|format(stats.saved_kg) }} kg</b></div>
+ <div class="stat"><span>Available listings</span><b>{{ stats.listings }}</b></div>
+</section>
+<section class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2>One platform. Three simple steps.</h2></section>
+<div class="feature-grid">
+ <article class="feature"><div class="feature-icon">📦</div><h3>List surplus food</h3><p>Donors publish food name, quantity, location and expiry details.</p></article>
+ <article class="feature"><div class="feature-icon">🤖</div><h3>Use AI insights</h3><p>Estimate waste risk and review a basic visual image analysis demo.</p></article>
+ <article class="feature"><div class="feature-icon">🤝</div><h3>Connect and claim</h3><p>NGO accounts can view available listings and record a claim.</p></article>
+</div>
+{% endblock %}

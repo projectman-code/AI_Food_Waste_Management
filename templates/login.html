@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Login | FreshLoop{% endblock %}{% block content %}
+<div class="form-wrap"><div class="form-card"><span class="eyebrow">WELCOME BACK</span><h1>Sign in</h1><form method="post">
+<label>Email address<input type="email" name="email" required></label><label>Password<input type="password" name="password" required></label>
+<button class="btn primary full">Sign in</button></form><p class="muted">New here? <a href="{{ url_for('register') }}">Create an account</a></p></div></div>
+{% endblock %}

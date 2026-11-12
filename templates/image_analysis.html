@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Food Image AI | FreshLoop{% endblock %}{% block content %}
+<div class="page-head"><div><span class="eyebrow">AI MODULE 02</span><h1>Food image analysis</h1><p class="muted">Upload a food photo for a basic image-feature demonstration.</p></div></div>
+<div class="split">
+ <div class="form-card"><form method="post" enctype="multipart/form-data"><label>Choose food image<input type="file" name="food_image" accept=".png,.jpg,.jpeg,.webp" required></label><p class="muted">Maximum file size: 5 MB. JPG, PNG or WEBP.</p><button class="btn primary full">Analyze image</button></form></div>
+ {% if result %}<div class="result-card">{% if image_url %}<img class="preview" src="{{ image_url }}" alt="Uploaded food">{% endif %}<span class="eyebrow">IMAGE FEATURE RESULT</span><h2>{{ result.label }}</h2><div class="result-metrics"><div><small>Visual feature score</small><b>{{ result.confidence }}/100</b></div></div><h3>Observations</h3><ul>{% for item in result.notes %}<li>{{ item }}</li>{% endfor %}</ul><p class="note">{{ result.disclaimer }}</p></div>
+ {% else %}<div class="info-panel"><div class="feature-icon">🥦</div><h2>Image-based demo</h2><p>The prototype checks simple brightness and colour statistics and returns a visual-feature score.</p><p class="note">It does not identify food species or determine edibility. Never use it to decide whether food is safe.</p></div>{% endif %}
+</div>
+{% endblock %}

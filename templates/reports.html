@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Reports | FreshLoop{% endblock %}{% block content %}
+<div class="page-head"><div><span class="eyebrow">IMPACT OVERVIEW</span><h1>Reports & analytics</h1><p class="muted">A summary of listings recorded in this prototype database.</p></div></div>
+<div class="stats"><div class="stat"><span>Total listings</span><b>{{ totals.total or 0 }}</b></div><div class="stat"><span>Total listed food</span><b>{{ '%.1f'|format(totals.kg or 0) }} kg</b></div><div class="stat"><span>Claimed food</span><b>{{ '%.1f'|format(totals.claimed_kg or 0) }} kg</b></div></div>
+<div class="form-card chart-card"><h2>Food quantity by category</h2><canvas id="categoryChart"></canvas></div>
+<script>
+const labels = {{ rows|map(attribute='category')|list|tojson }};
+const values = {{ rows|map(attribute='kg')|list|tojson }};
+new Chart(document.getElementById('categoryChart'), {type:'bar',data:{labels,datasets:[{label:'Quantity (kg)',data:values,borderRadius:8}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+</script>
+{% endblock %}
